@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t nesho/docker-angular -f Dockerfile.dev .
+
+script:
+  - docker run cli=true nesho/docker-angular npm run test
